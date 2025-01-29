@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "hkn.js",
   "scripts": {
-    "dev": " nodemon jan23-2.js"
+    "dev": " nodemon jan23.js"
   },
   "keywords": [],
   "author": "",
