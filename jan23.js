@@ -1,12 +1,14 @@
 
 const express = require("express"); // Import express module
 const morgan = require("morgan"); // Import morgan module for logging
+const dotenv = require("dotenv"); // Import dotenv module for environment variables
 
 const connectDb = require("./config/db");
 const router = require("./routes/cars.routes");
 
+dotenv.config();  // Configure dotenv to use environment variables
 const app = express(); // Create an express application
-const port = 3000; // Define the port number
+const port = process.env.PORT; // Define the port number
 
 app.use(morgan("dev")); // Use morgan middleware for logging in dev mode
 app.use(express.json()); // Use express middleware to parse JSON
@@ -21,7 +23,7 @@ app.use('/api/v1', router)
 
 // Start the server and listen on the defined port
 app.listen(port, () => {
-  connectDb;  // Call the function to connect to the database
+  connectDb();  // Call the function to connect to the database
   console.log(`Server is running on port ${port}`); // Log that the server is running
 });
 
